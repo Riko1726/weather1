@@ -1,0 +1,278 @@
+html,body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: url("png/tokyo.jpg");
+  background-size:cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.lar1{
+background-image: none;
+}
+
+#top{
+margin: 0;
+}
+
+
+h1 {
+  font-family: sans-serif;
+  font-size: 24px;
+  text-align: center;
+  color: #444444;
+  
+}
+
+h2 {
+  font-family: sans-serif;
+  color: #444444;
+  text-align: center;
+  
+  
+}
+h2.mi{
+  background-color: rgba(255, 255, 255, 0.329);
+}
+
+p {
+  font-family: sans-serif;
+  font-size: 17px;
+  color: #444444;
+  text-align: left;
+  font-weight: bold;
+}
+
+#map {
+  height: 400px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.currentw {
+  padding-top: 10px;
+  margin: 5px;
+  margin-left:30% ;
+  margin-right: 30%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.781);
+  box-shadow: 0 0 15px gray;
+  
+
+}
+
+
+
+#warp{
+top:10vh;
+position: fixed;
+right: 0%;
+z-index: 1;
+font-size:0;
+}
+
+#warp li a{
+-webkit-writing-mode: vertical-rl; 
+-ms-writing-mode: tb-rl; 
+writing-mode: vertical-rl;
+font-size: 15px;
+padding:20px 20px;
+color:#9F886E;
+background-color: rgba(255,255,255,0.7);
+font-weight: bold;
+}
+
+#warp li{
+  background-color: none;
+}
+
+
+li.w{
+width: 100%;
+float: right;
+}
+
+#img {
+background-image: url("png/tokyo.jpg");
+height: 150px;
+width: 150px;
+
+}
+header {
+padding-top: 25px;
+height: 65px;
+width: 100%;
+background-color: rgba(255, 255, 255, 0.795);
+z-index: 10;
+text-align: center;
+box-shadow:5px;
+}
+
+
+
+h1{
+text-align: center;
+}
+
+.btn{
+font-weight: bold;
+color: #FFF;
+background: #00bcd4;
+padding: 5px;
+width: 45px;
+
+}
+
+#weather{
+padding-right: 50px;
+}
+
+.one-san{
+display: inline-block;
+text-align: center;
+}
+
+.wid{
+width:481.67px;
+font-size: 16px;
+padding: 5px;
+background-color: #fff;
+border: 1px solid #ccc;
+line-height: 1em;
+margin-left: 50px;
+}
+
+.kenbar{
+text-align: center;
+padding-right: 50px;
+padding-top: 80px;
+}
+
+
+
+li{
+float: left;
+list-style-type: none;
+width: 50%;
+text-decoration: underline;
+}
+
+ul{
+text-align: center;
+
+}
+
+.tdw{
+width:40%;
+display: inline-block;
+border-right: thick solid rgba(97, 93, 93, 0.2);
+text-align: center;
+}
+
+.bc{
+  background-color:rgba(37, 196, 245, 0.856);
+}
+
+
+
+
+
+.tmrw{
+width: 40%;
+display: inline-block;
+text-align: center;
+}
+
+.td-tmrw{
+text-align: center;
+background-color: rgba(255, 255, 255, 0.781);
+box-shadow: 0 0 15px gray;
+z-index: 9998;
+margin-left: 3%;
+margin-right: 3%;
+}
+
+
+
+
+table {
+margin: 5px;
+margin-left:20% ;
+margin-right: 20%;
+background-color: rgba(255, 255, 255, 0.781);
+box-shadow: 0 0 15px gray;
+font-family: sans-serif;
+font-size: 17px;
+color: #444444;
+font-weight: bold;
+
+
+}
+
+th{
+text-align: center;
+width: 200px;
+}
+
+td{
+width: 200px;
+text-align: center;
+text-decoration: underline;
+}
+
+
+.daily{
+text-align: center;
+margin-left:10% ;
+margin-right: 10%;
+padding-bottom: 50px;
+}
+
+img{
+background-image: url("png/tokyo.jpg");
+}
+
+.warp{
+position: fixed;
+}
+
+footer{
+background-color: rgba(255, 255, 255, 0.781);
+margin-top: 50px;
+margin: 0;
+height: 65px;
+padding-top: 25px;
+
+}
+
+#ft{
+bottom: 0;
+margin: 0;
+}
+
+.coment{
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.781);
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 15px;
+  box-shadow: 0 0 15px gray;
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+
+.coment,p{
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.ama{
+  background-image: none;
+}
+
+.am{
+  display: inline-block;
+}

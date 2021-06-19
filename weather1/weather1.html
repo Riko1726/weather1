@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>Weather Now</title>
+    <link rel="stylesheet" type="text/css" href="weather1.css">
+    <script src="../js/saisyu1.js"></script>
+    <script src="../js/saisyu2.js"></script>
+    
+  </head>
+
+  <body>
+    <header >
+      <h2 id="top">Weather Now<img  class="lar1" height="40" width="40" src="png/character_egypt_ra.png"></h2>
+      
+    </header>
+    <label for="area"></label>
+    <div class="kenbar"><input id="area" height="50" class="wid" type="text" placeholder="都市名、郵便番号、市外局番、Londonなど">     <button class="btn" onclick="getWeather1()" >検索</button></div>
+    <div class="warp">
+      <ul id="warp">
+        <li class="w"><a href ="#cw">現在の天気</a></li>
+        <li class="w"><a href ="#tdtmw">今日明日の天気</a></li>
+        <li class="w"><a href ="#hw">1時間ごとの天気</a></li>
+        <li class="w"><a href ="#ww">週間天気</a></li>
+      </ul>
+    </div>
+
+    <h2 class="mi"><span  id="city">現在の天気</span><h1></h1>
+    <div class="currentw">
+      <h1><span id="currmon"></span><span id="currdate"></span><span id="currhour"></span><span id="currmin"></span></h2>
+        
+        <div class="one-san">
+          <img id="img" height="200" width="200" src="png/job_otenki_oneesan.png">
+        </div>
+        <div class="one-san">
+          <ul>
+            <li><p >天気：<span id="weather"></span></p></li>
+            <li><p>気温: <span id="temperature"></span>℃</p></li>
+            <li><p>湿度: <span id="humidity"></span> %</p></li>
+            <li><p>気圧: <span id="pressure"></span> hPa</p></li>
+            <li><p>体感気温:<span id="feelintemp"></span> ℃</p></li>
+            <li><p>風:<span id="wd"></span><span id="ws"></span> ㎧</p></li>
+          </ul>
+        </div> 
+    </div>
+
+    <div class="coment">
+      <div class="am"><img  class="ama" width="100" height="100" src="png/youkai_amabie_mimi.png"></div>
+      <div class="am">
+        <p >熱中症：<span id="netu"> </span></p>
+        <p >紫外線：<span id="uv"></span></p>
+      </div>
+      
+    </div>
+
+    <div id="tdtmw"></div>
+    <h2 class="mi">今日明日の天気</h2>
+    <div class="td-tmrw">
+      
+      <div class="tdw">
+        <h1><span id="tdmon"></span>月<span id="tddate"></span>日</h1>
+        <img id="img-tdw" height="200" width="200" src="png/job_otenki_oneesan.png">
+        <ul class="bc">
+          <li><p >天気：<span id="tdw"></span></p></li>
+          <li><p>気温: <span id="tdtemp"></span>℃</p></li>
+          <li><p>湿度: <span id="tdhumid"></span> %</p></li>
+          <li><p>気圧: <span id="tdpress"></span> hPa</p></li>
+          <li><p>最低気温:<span id="tdtemp-min"></span> ℃</p></li>
+          <li><p>最高気温:<span id="tdtemp-max"></span> ℃</p></li>
+          <li><p>降水量:<span id="tdrainam"></span> mm</p></li>
+          <li><p>体感気温:<span id="tdfeeltemp"></span> ℃</p></li>
+          <li><p>UV指数:<span id="tduv"></span> </p></li>
+          <li><p>風:<span id="tdwinddeg"></span> <span id="tdwindsp"></span> ㎧</p></li>
+          <li><p>日の出:<span id="tdsunrhour"></span>時 <span id="tdsunrminutes"></span>分</p></li>
+          <li><p>日の入り:<span id="tdsunshour"></span>時<span id="tdsunsminutes"></span>分</p></li>
+        </ul>
+      </div>
+      <div class="tmrw">
+        <h1><span id="tmmon"></span>月<span id="tmdate"></span>日</h1>
+        <img id="img-tmw" height="200" width="200" src="png/job_otenki_oneesan.png">
+        <ul>
+          <li><p >天気：<span id="tmw"></span></p></li>
+          <li><p>気温: <span id="tmtemp"></span>℃</p></li>
+          <li><p>湿度: <span id="tmhumid"></span> %</p></li>
+          <li><p>気圧: <span id="tmpress"></span> hPa</p></li>
+          <li><p>最低気温:<span id="tmtemp-min"></span> ℃</p></li>
+          <li><p>最高気温:<span id="tmtemp-max"></span> ℃</p></li>
+          <li><p>降水量:<span id="tmrainam"></span> mm</p></li>
+          <li><p>体感気温:<span id="tmfeeltemp"></span> ℃</p></li>
+          <li><p>UV指数:<span id="tmuv"></span> </p></li>
+          <li><p>風:<span id="tmwinddeg"></span> <span id="tmwindsp"></span> ㎧</p></li>
+          <li><p>日の出:<span id="tmsunrhour"></span>時 <span id="tmsunrminutes"></span>分</p></li>
+          <li><p>日の入り:<span id="tmsunshour"></span>時<span id="tmsunsminutes"></span>分</p></li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div id="hw"></div>
+      <div class="td-hour">
+        <h2 class="mi">1時間ごと</h2>
+        <table  class="table2">
+          <thead class="bc">
+            <th>日</th>
+            <th>時間</th>
+            <th>天気</th>
+            <th>気温</th>
+            <th>風</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span id="h0d"></span>日</td>
+              <td><span id="h0h"></span>時</td>
+              <td><img id="h0w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h0t"></span>℃</td>
+              <td><span id="h0wd"></span><span id="h0wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h1d"></span>日</td>
+              <td><span id="h1h"></span>時</td>
+              <td><img id="h1w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h1t"></span>℃</td>
+              <td><span id="h1wd"></span><span id="h1wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h2d"></span>日</td>
+              <td><span id="h2h"></span>時</td>
+              <td><img id="h2w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h2t"></span>℃</td>
+              <td><span id="h2wd"></span><span id="h2wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h3d"></span>日</td>
+              <td><span id="h3h"></span>時</td>
+              <td><img id="h3w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h3t"></span>℃</td>
+              <td><span id="h3wd"></span><span id="h3wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h4d"></span>日</td>
+              <td><span id="h4h"></span>時</td>
+              <td><img id="h4w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h4t"></span>℃</td>
+              <td><span id="h4wd"></span><span id="h4wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h5d"></span>日</td>
+              <td><span id="h5h"></span>時</td>
+              <td><img id="h5w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h5t"></span>℃</td>
+              <td><span id="h5wd"></span><span id="h5wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h6d"></span>日</td>
+              <td><span id="h6h"></span>時</td>
+              <td><img id="h6w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h6t"></span>℃</td>
+              <td><span id="h6wd"></span><span id="h6wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h7d"></span>日</td>
+              <td><span id="h7h"></span>時</td>
+              <td><img id="h7w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h7t"></span>℃</td>
+              <td><span id="h7wd"></span><span id="h7wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h8d"></span>日</td>
+              <td><span id="h8h"></span>時</td>
+              <td><img id="h8w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h8t"></span>℃</td>
+              <td><span id="h8wd"></span><span id="h8wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h9d"></span>日</td>
+              <td><span id="h9h"></span>時</td>
+              <td><img id="h9w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h9t"></span>℃</td>
+              <td><span id="h9wd"></span><span id="h9wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h10d"></span>日</td>
+              <td><span id="h10h"></span>時</td>
+              <td><img id="h10w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h10t"></span>℃</td>
+              <td><span id="h10wd"></span><span id="h10wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h11d"></span>日</td>
+              <td><span id="h11h"></span>時</td>
+              <td><img id="h11w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h11t"></span>℃</td>
+              <td><span id="h11wd"></span><span id="h11wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h12d"></span>日</td>
+              <td><span id="h12h"></span>時</td>
+              <td><img id="h12w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h12t"></span>℃</td>
+              <td><span id="h12wd"></span><span id="h12wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h13d"></span>日</td>
+              <td><span id="h13h"></span>時</td>
+              <td><img id="h13w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h13t"></span>℃</td>
+              <td><span id="h13wd"></span><span id="h13wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h14d"></span>日</td>
+              <td><span id="h14h"></span>時</td>
+              <td><img id="h14w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h14t"></span>℃</td>
+              <td><span id="h14wd"></span><span id="h14wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h15d"></span>日</td>
+              <td><span id="h15h"></span>時</td>
+              <td><img id="h15w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h15t"></span>℃</td>
+              <td><span id="h15wd"></span><span id="h15wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h16d"></span>日</td>
+              <td><span id="h16h"></span>時</td>
+              <td><img id="h16w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h16t"></span>℃</td>
+              <td><span id="h16wd"></span><span id="h16wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h17d"></span>日</td>
+              <td><span id="h17h"></span>時</td>
+              <td><img id="h17w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h17t"></span>℃</td>
+              <td><span id="h17wd"></span><span id="h17wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h18d"></span>日</td>
+              <td><span id="h18h"></span>時</td>
+              <td><img id="h18w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h18t"></span>℃</td>
+              <td><span id="h18wd"></span><span id="h18wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h19d"></span>日</td>
+              <td><span id="h19h"></span>時</td>
+              <td><img id="h19w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h19t"></span>℃</td>
+              <td><span id="h19wd"></span><span id="h19wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h20d"></span>日</td>
+              <td><span id="h20h"></span>時</td>
+              <td><img id="h20w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h20t"></span>℃</td>
+              <td><span id="h20wd"></span><span id="h20wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h21d"></span>日</td>
+              <td><span id="h21h"></span>時</td>
+              <td><img id="h21w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h21t"></span>℃</td>
+              <td><span id="h21wd"></span><span id="h21wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h22d"></span>日</td>
+              <td><span id="h22h"></span>時</td>
+              <td><img id="h22w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h22t"></span>℃</td>
+              <td><span id="h22wd"></span><span id="h22wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h23d"></span>日</td>
+              <td><span id="h23h"></span>時</td>
+              <td><img id="h23w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h23t"></span>℃</td>
+              <td><span id="h23wd"></span><span id="h23wsp"></span>㎧</td>
+            </tr>
+            <tr>
+              <td><span id="h24d"></span>日</td>
+              <td><span id="h24h"></span>時</td>
+              <td><img id="h24w" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td><span id="h24t"></span>℃</td>
+              <td><span id="h24wd"></span><span id="h24wsp"></span>㎧</td>
+            </tr>
+
+        </tbody>
+        </table>
+      </div>
+      
+      <div id="ww"></div>
+      <h2 class="mi">週間天気</h2>
+      <div class="daily">
+        
+        <table id="table3" class="table3">
+          <thead class="bc">
+            <th>日(曜日）</th>
+            <th>天気</th>
+            <th>最高気温</th>
+            <th>最低気温</th>
+            <th>湿度</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td ><span id="d8d"></span>日(<span id="d8dw"></span>)</td>
+              <td ><img id="dw8" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td ><span id="dmx8"></span>℃</td>
+              <td><span id="dmn8"></span>℃</td>
+              <td ><span id="dh8"></span>％</td>
+            </tr>
+            <tr>
+              <td><span id="d2d"></span>日(<span id="d2dw"></span>)</td>
+              <td ><img id="dw2" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td ><span id="dmx2"></span>℃</td>
+              <td ><span id="dmn2"></span>℃</td>
+              <td ><span id="dh2"></span>％</td>
+            </tr>
+            <tr>
+              <td ><span id="d3d"></span>日(<span id="d3dw"></span>)</td>
+              <td ><img id="dw3" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td ><span id="dmx3"></span>℃</td>
+              <td ><span id="dmn3"></span>℃</td>
+              <td ><span id="dh3"></span>％</td>
+            </tr>
+            <tr>
+              <td ><span id="d4"></span>日(<span id="d4dw"></span>)</td>
+              <td ><img id="dw4" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td ><span id="dmx4"></span>℃</td>
+              <td ><span id="dmn4"></span>℃</td>
+              <td ><span id="dh4"></span>％</td>
+            </tr>
+            <tr>
+              <td ><span id="d5d"></span>日(<span id="d5dw"></span>)</td>
+              <td ><img id="dw5" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td ><span id="dmx5"></span>℃</td>
+              <td ><span id="dmn5"></span>℃</td>
+              <td ><span id="dh5"></span>％</td>
+            </tr>
+            <tr>
+              <td ><span id="d6d"></span>日(<span id="d6dw"></span>)</td>
+              <td ><img id="dw6" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td ><span id="dmx6"></span>℃</td>
+              <td ><span id="dmn6"></span>℃</td>
+              <td ><span id="dh6"></span>％</td>
+            </tr>
+            <tr>
+              <td ><span id="d7d"></span>日(<span id="d7dw"></span>)</td>
+              <td ><img id="dw7" height="50" width="50" src="png/job_otenki_oneesan.png"></td>
+              <td ><span id="dmx7"></span>℃</td>
+              <td ><span id="dmn7"></span>℃</td>
+              <td ><span id="dh7"></span>％</td>
+            </tr>
+            
+
+          </tbody>
+        </table>
+      </div>
+      <footer >
+        <div class="foot">
+          <h2 id="ft">Weather Now</h2>
+        </div>
+    </footer>
+  </body>
+</html>
